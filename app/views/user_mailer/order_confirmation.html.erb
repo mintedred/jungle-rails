@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <h1>Thanks for your order!</h1>
+    
+    <h3>Summary of your order:</h3>
+    <br/>
+    <div class="item">
+      <% @order.line_items.each do |item| %>       
+        <h4><%= item.product.name %></h4>
+        <%= image_tag item.product.image.tiny %>
+        <p>Quantity: <%= item.quantity %></p>
+        <p>Item total: $<%= item.product.price * item.quantity %></p>
+        <hr/>
+      <% end %>
+      <br/>
+    </div>
+    
+    <hr/>
+
+    <p>Your order total: <%= @order.total %></p>
+
+    <p>Have a great day!</p>
+  </body>
+</html>
