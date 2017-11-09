@@ -1,0 +1,16 @@
+<div class="item">
+
+
+  <% @order.line_items.each do |item| %>
+    
+    
+    <h4><%= item.product.name %></h4>
+    <%= image_tag item.product.image.tiny %>
+    <p><%= item.product.description %></p>
+    <p>Quantity: <%= item.quantity %></p>
+    <p>Item total: $<%= item.product.price * item.quantity %></p>
+    <hr/>
+  <% end %>
+  <br/>
+</div>
+  

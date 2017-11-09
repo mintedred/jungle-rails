@@ -8,6 +8,15 @@
     <h4>Thank you for your order!</h4>
   </div>
 
+  <h4>Summary of your order:</h4>
+  <br/>
+  <%= render 'order' %>
+
+  <hr/>
+
+  <p>Your order total: <%= @order.total %></p>
+  <p>The associated email for this order: <%= @order.email %></p>
+  <hr/>
   <%= link_to "Continue Shopping", root_path, class: 'btn btn-lg btn-primary' %>
 
 </section>
