@@ -1,4 +1,8 @@
 class Admin::CategoriesController < ApplicationController
+
+  http_basic_authenticate_with name: ENV["ADMIN_HTTP_USERNAME"], password: ENV["ADMIN_HTTP_PW"]
+
+
   def index
     @categories = Category.all
   end
@@ -23,5 +27,7 @@ class Admin::CategoriesController < ApplicationController
   def category_params
     params.require(:category).permit(:name)
   end
+
+
 
 end
