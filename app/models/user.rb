@@ -1,11 +1,7 @@
-class CreateUsers < ActiveRecord::Migration
-  def self.up
-    create_table :users do |u|
-      t.string :name
-      t.string :email
-      t.string :encrypted_password
-      t.string :salt
-      t.timestamps
-    end
-  end
+class User < ActiveRecord::Base
+  attr_accessor :password
+  validates :username, :presence => true, :uniqueness => true, :length => { :in => 3..20 }
+  validates :email, :presence => true, :uniqueness => true
+  validates :password, :confirmation => true #password_confirmation attr
+  validates_length_of :password, :in => 6..20, :on => :create
 end
