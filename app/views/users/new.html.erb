@@ -1,6 +1,9 @@
+<br/>
+<br/>
+<br/>
 <h1>Signup!</h1>
 
-<%= form_for :user, url: '/users' do |f| %>
+<%= form_for @user do |f| %>
   
   Name: <%= f.text_field :name %>
   Email: <%= f.text_field :email %>
@@ -8,4 +11,12 @@
   Password Confirmation: <%= f.password_field :password_confirmation %>
   <%= f.submit "Submit" %>
   
+<% end %>
+
+<% if @user.errors.any? %>
+  <ul class="errors">
+    <% @user.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
 <% end %>
