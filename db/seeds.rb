@@ -49,6 +49,14 @@ cat1.products.create!({
   image: open_asset('apparel2.jpg'),
   quantity: 18,
   price: 124.99
+  # reviews: [
+  #   { 
+  #   },
+  #   { user_id: 2,
+  #     rating: 2,
+  #     description: "Too bright."
+  #   }
+  # ]
 })
 
 cat1.products.create!({
@@ -131,6 +139,19 @@ cat3.products.create!({
   quantity: 0,
   price: 2_483.75
 })
+
+user1 = User.create!({
+  name: "Bob",
+  email: "bob@bob.com",
+  password: "bob"
+})
+
+user1.reviews.create!({
+  product_id: 1,
+  rating: 5,
+  description: "Really warm!"
+});
+
 
 
 puts "DONE!"
