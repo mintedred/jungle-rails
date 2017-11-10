@@ -146,12 +146,23 @@ user1 = User.create!({
   password: "bob"
 })
 
+user2 = User.create!({
+  name: "Sue",
+  email: "sue@bob.com",
+  password: "bob"
+})
+
 user1.reviews.create!({
   product_id: 1,
   rating: 5,
   description: "Really warm!"
 });
 
+user2.reviews.create!({
+  product_id: 1,
+  rating: 2,
+  description: "Too bright"
+});
 
 
 puts "DONE!"
