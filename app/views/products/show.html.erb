@@ -26,13 +26,26 @@
       </div>
     </div>
 
+    <% if current_user %>
+      <h3>Submit a review</h3>
+      <%= form_for ([@product,Review.new]) do |f| %>
+        <div class="form-group">
+          Rating: <%= f.select :rating, [5, 4, 3, 2, 1] %>
+        </div>
+        <div class="form-group">    
+          Description: <%= f.text_area :description, size: '30x6' %>
+        </div>
+        <%= f.submit "Submit" %>
+      <% end %>
+    <% end %>
+
     <div class="reviews">
+      <h3>Reviews: </h3>
       <% @reviews.each do |review| %>
       <p class="user"><%= review.user.name %></p>
       <p class="rating"><%= review.rating %></p>
       <p class="description"><%= review.description %></p>
       <% end %>
-
     </div>
 
   </article>
